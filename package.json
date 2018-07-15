@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-react-filenames",
+  "name": "eslint-plugin-react-filename-matches-class",
   "version": "0.0.2",
   "author": "Tom MacWright <tom@macwright.org>",
   "contributors": [
