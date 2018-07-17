@@ -41,6 +41,11 @@ ruleTester.run('filename-matches-component', rule, {
     parserOptions: parserOptions
   }, {
     code: [
+      'var Hello2 = React.createClass({',
+      '  render: function() {',
+      '    return <div>Hello {this.props.name}</div>;',
+      '  }',
+      '});',
       'var Hello = React.createClass({',
       '  displayName: \'Hello\',',
       '  render: function() {',
@@ -48,7 +53,18 @@ ruleTester.run('filename-matches-component', rule, {
       '  }',
       '});'
     ].join('\n'),
-    filename: 'hello.js',
+    filename: 'Hello.js',
+    parserOptions: parserOptions
+  }, {
+    code: [
+      'var Hello = React.createClass({',
+      '  displayName: \'Hello\',',
+      '  render: function() {',
+      '    return <div>Hello {this.props.name}</div>;',
+      '  }',
+      '});'
+    ].join('\n'),
+    filename: 'Hello.js',
     parserOptions: parserOptions
   }, {
     code: [
@@ -59,7 +75,7 @@ ruleTester.run('filename-matches-component', rule, {
       '}',
       'Hello.displayName = \'Hello\''
     ].join('\n'),
-    filename: 'hello.js',
+    filename: 'Hello.js',
     parserOptions: parserOptions
   }, {
     code: [
@@ -72,7 +88,7 @@ ruleTester.run('filename-matches-component', rule, {
       '  }',
       '}'
     ].join('\n'),
-    filename: 'hello.js',
+    filename: 'Hello.js',
     parserOptions: parserOptions
   }, {
     code: [
@@ -80,7 +96,7 @@ ruleTester.run('filename-matches-component', rule, {
     ].join('\n'),
     options: [{
     }],
-    filename: 'bears_spiders.js',
+    filename: 'BearsSpiders.js',
     parserOptions: parserOptions
   }, {
     code: [
@@ -88,7 +104,7 @@ ruleTester.run('filename-matches-component', rule, {
     ].join('\n'),
     options: [{
     }],
-    filename: 'folks_wolves.js',
+    filename: 'FolksWolves.js',
     parserOptions: parserOptions
   }, {
     code: [
@@ -96,7 +112,7 @@ ruleTester.run('filename-matches-component', rule, {
     ].join('\n'),
     options: [{
     }],
-    filename: 'dont_look.js',
+    filename: 'DontLook.js',
     parserOptions: parserOptions
   }, {
     code: [
@@ -104,7 +120,7 @@ ruleTester.run('filename-matches-component', rule, {
     ].join('\n'),
     options: [{
     }],
-    filename: 'john_smith.js',
+    filename: 'JohnSmith.js',
     parserOptions: parserOptions
   }, {
     code: [
@@ -116,7 +132,7 @@ ruleTester.run('filename-matches-component', rule, {
     ].join('\n'),
     options: [{
     }],
-    filename: 'hello.js',
+    filename: 'Hello.js',
     parserOptions: parserOptions
   }],
 
@@ -130,9 +146,9 @@ ruleTester.run('filename-matches-component', rule, {
       '});'
     ].join('\n'),
     parserOptions: parserOptions,
-    filename: 'hi.js',
+    filename: 'Hi.js',
     errors: [{
-      message: 'Component name Component (component) does not match filename hi'
+      message: 'Component name Component does not match filename Hi'
     }]
   }, {
     code: [
@@ -144,10 +160,10 @@ ruleTester.run('filename-matches-component', rule, {
     ].join('\n'),
     options: [{
     }],
-    filename: 'hi.js',
+    filename: 'Hi.js',
     parserOptions: parserOptions,
     errors: [{
-      message: 'Component name Hello (hello) does not match filename hi'
+      message: 'Component name Hello does not match filename Hi'
     }]
   }]
 });
